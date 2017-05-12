@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulaire</title>
+	<style>
+		label{
+			display: inline-block;
+			width: 120px;
+			text-align: right;
+		}
+
+	</style>
+</head>
+<body>
+
+<form action="">
+	<label for="nom">Nom :</label>
+	<input type="text" id="nom" value="">
+
+	<label for="prenom">Prénom :</label>
+	<input type="text" id="prenom">
+
+	<label for="email">Email :</label>
+	<input type="email" id="email">
+
+	<button>OK</button>
+</form>
+
+<output></output>
+
+<script>
+myButton = document.querySelector("button");
+myButton.onclick = function (event){
+	// event.preventDefault();
+
+	myNom = document.querySelector('#nom') /*je récupère le champ*/
+	myPrenom = document.querySelector('#prenom');
+	myEmail = document.querySelector('#email');
+
+	var texte = 'Bonjour ' + myNom.value + ' ' + myPrenom.value + ' votre Email est bien <strong>' + myEmail.value; + '</strong>?';
+
+
+	var myOutput = document.querySelector('output')
+	myOutput.innerHTML = texte;
+
+	// alert(myNom.value);
+	// alert(myNom.type);
+	// alert(myNom.id);
+	// alert(myNom.placeholder); /*toutes les propriétés*/
+
+};
+
+
+</script>
+	
+</body>
+</html>
