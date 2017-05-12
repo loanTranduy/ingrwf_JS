@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript</title>
+</head>
+<body>
+<h1>Titre</h1>
+<section></section>
+
+<script>
+	var name = 'tranduy ';  /*Type string : chaîne de caractères*/
+	var age = 48;  /*Type number : pas de quote pour les nombres*/
+	var inscription = true;  /*Type boléen : true or false*/
+	var resultat = 50.58 /*Type: Decimal*/
+	var fullname = name + 'loan';
+	console.log(fullname);
+	console.log( age + resultat )
+
+	var mySection = document.querySelector('section')
+	console.log(mySection)
+	mySection.innerHTML = fullname;
+
+</script>
+	
+</body>
+</html>

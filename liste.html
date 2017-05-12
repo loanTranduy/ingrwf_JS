@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>liste</title>
+</head>
+<body>
+
+<form action="">
+	<input type="text" placeholder ="votre nom" id="place">
+	<button>Ajouter</button value="Set Focus">
+</form>
+
+<button class="vider">vider</button>
+<section>
+</section>
+<script>
+	var myBtn = document.querySelector('button');
+	var myPlace = document.querySelector('input');
+	var myList = document.querySelector('section')
+	var myVider = document.querySelector('.vider')
+
+
+	myBtn.addEventListener('click', function(event){
+		var myName = myPlace.value;
+		event.preventDefault();
+		myList.innerHTML += '<li>' + myName + '<br>';
+		myPlace.value="";
+		myPlace.focus();
+
+		if(myPlace.value.lenght > 0){
+			myList.innerHTML += '<li>' + myName + '</li>';
+			myName="";
+			myPlace.focus();
+		}
+
+		else{
+			alert('Vous n avez rien rentré')
+		}
+		myPlace.focus();
+		
+	})
+
+	myVider.addEventListener('click', function(event){
+		myList.innerHTML=""
+
+
+	});
+
+
+
+	
+
+
+</script>
+	
+</body>
+</html>

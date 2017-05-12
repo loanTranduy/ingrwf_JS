@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>couleur</title>
+
+<style>
+	div{
+		width: 50px;
+		height:50px;
+		display: inline-block;
+		margin: 10px;
+	}
+
+	.color1{
+		background-color: red;
+	}
+
+	.color2{
+		background-color: green;
+	}
+
+	.color3{
+		background-color: blue;
+	}
+
+</style>
+</head>
+<body>
+<header>
+<div class="color1"></div>
+<div class="color2"></div>
+<div class="color3"></div>
+
+<h3>click</h3>
+</header>
+
+<script>
+	
+	myRed = document.querySelector('.color1');
+	myGreen = document.querySelector('.color2');
+	myBlue = document.querySelector('.color3');
+	myTexte = document.querySelector('h3');
+
+	// myRed.addEventListener('click', function (event){
+	// 	event.preventDefault();
+
+	// 	myTexte.style.color='red';
+
+	// });
+
+	// myGreen.addEventListener('click', function (event){
+	// 	event.preventDefault();
+
+	// 	myTexte.style.color='green';
+
+	// });
+
+	// myBlue.addEventListener('click', function (event){
+	// 	event.preventDefault();
+
+	// 	myTexte.style.color='blue';
+
+	// });
+
+	myDivs = document.querySelectorAll('header div');
+	for (var i = 0; i< myDivs.length - 1; i++) {
+		myDivs[i].addEventListener('click', function(){
+			mycolor = this.getAttribute('data-color');
+			document.querySelector('h3').style.color = myColor;
+		});
+	};
+
+
+</script>
+	
+</body>
+</html>

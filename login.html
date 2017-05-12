@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<style>section{display: none;}</style>
+</head>
+<body>
+
+<header>
+	<form action="" id="login">
+	<input type="text" id="pseudo" placeholder="login">
+	<button>go</button>
+	</form>
+</header>
+<section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id error, suscipit in ducimus repellat ipsam nemo recusandae aliquid praesentium velit.</section>
+<script>
+	
+	var myButton = document.querySelector('#login button'); /*Je parcours le document pour trouver le boutton, je l'appelle myButton*/
+	myButton.onclick = function (event){ /*Quand je clique dessus...*/
+		event.preventDefault(); /*j'annule le comportement par défaut du button*/
+
+		myLogField = document.querySelector('#pseudo'); /*... J'indique que ce que mon champ s'appelle myLogField*/
+		myLog = myLogField.value; /*... J'indique que la valeur s'appelle myLog*/
+
+		if (myLog == 'admin'){
+			alert('ok');
+			mySection = document.querySelector('section')
+			mySection.style.display= 'block';
+		}
+		else if ( myLog == '' ){
+			alert('Attention tapez votre pseudo')
+		}
+		else{
+			alert('pas ok')
+		}
+	};
+	</script>
+	
+</body>
+</html>

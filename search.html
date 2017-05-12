@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Search</title>
+</head>
+<body>
+
+<header>
+	<form action="">
+	<input type="text" id="keywords">
+	<button>search</button>
+	</form>
+	<section></section>
+
+</header>
+
+<script>
+	var myButton = document.querySelector('button');  /*Je parcours le document pour trouver le boutton, je l'appelle myButton*/
+	myButton.onclick = function (event) { /*Quand je clique dessus...*/
+		event.preventDefault(); /*j'annule le comportement par défaut du button*/
+
+		var myKeywords = document.querySelector('#keywords'); /*... J'indique que ce que mon champ s'appelle myKeywords*/
+		var mySection = document.querySelector('section'); /* je veux les mettre dans ma section, j'indique donc qu'elle s'appelle mySection*/
+		var fullKeywords = myKeywords.value;/*... J'indique que ce qu'il y a dans mon champ, les valeurs s'appellent fullKeywords*/
+		mySection.innerHTML = fullKeywords; /*J'injecte myKeywords dans mySection*/
+
+	};
+	
+
+</script>
+	
+</body>
+</html>

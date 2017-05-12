@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>gallerie</title>
+		<style>
+			main{
+				display: flex;
+				
+			}
+
+			aside{
+				display: flex;
+				flex-direction: column;
+				width: 25%;
+			}
+			section{
+				width:75%;
+			}
+
+			img{
+				width: 40%;
+				margin: 10px;
+
+			}
+
+			.opaque{
+				opacity: 0.5;
+			}
+
+
+
+		</style>
+	</head>
+	<body>
+	<main>
+		<aside>
+			<img src="http://placehold.it/350x250" alt="Alt 1" class="opaque">
+			<img src="http://placehold.it/250x350" alt="Alt 2">
+			<img src="http://placehold.it/250x250" alt="Alt 3">
+		</aside>
+
+		<section>
+			<figure>
+				<img src="http://placehold.it/350x250">
+				<figcaption>Alt 1</figcaption>
+			</figure>
+		</section>
+	</main>
+		
+	<script>
+
+	// Indiquer tous les emplacements, tous ce dont je vais me servir
+
+	myImgs = document.querySelectorAll('aside img');
+	console.log(myImgs)
+	myTexte = document.querySelector('figure figcaption');
+	myBigImg = document.querySelector('section img');
+
+
+	for (var i = 0 ; i < myImgs.length ;  i++) {
+			myImgs[i].addEventListener('click', function(){
+			myBigImg.src = this.src;
+			/* OU myBigImg.src = this..getAttribute('src'); */
+			
+			myTexte.innerHTML = this.alt;
+			/* OU myTexte.innerHTML = this.getAttribute('alt');*/
+
+			for (var y = 0 ; y < myImgs.length ;  y++) {
+
+					myImgs[y].classList.remove("opaque");
+					this.classList.add("opaque");
+			}	
+
+			// OU sans boucle, moin gourmand
+			// imgOpaque = document.querySelector("aside img.opaque");
+			// imgOpaque.classList.remove("opaque");
+			// this.classList.add("opaque");	
+
+		})
+	};	
+
+
+		
+	</script>
+	</body>
+	</html>	

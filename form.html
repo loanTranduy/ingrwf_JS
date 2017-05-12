@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>formulaire</title>
+
+	<style>
+		.hidden{
+			display: none;
+		}
+
+		#formulaire{
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 50%;
+		}
+
+		input, button, a{
+			padding: 5px;
+			margin: 7px;
+		}
+		#formulaire a{
+			text-align: right;
+			color:black;
+			text-decoration: none;
+
+	</style>
+</head>
+<body>
+	
+<header>
+	<nav><a href="#">Login</a></nav>
+</header>
+
+<section class="hidden">
+	
+	<form action="" id="formulaire">
+		<a href="#">X</a>
+		<input type="text" placeholder="login">
+		<input type="text" placeholder="mot de passe">
+		<button>Se connecter</button>
+	</form>
+
+</section>
+
+	
+<script>
+	
+	var linkLogin = document.querySelector('nav a');
+	var myForm = document.querySelector('section');
+	var myClose = document.querySelector('#formulaire')
+
+	linkLogin.addEventListener('click', function(){
+		myForm.classList.toggle('hidden');
+		this.classList.toggle('hidden')
+	})
+
+	myClose.addEventListener('click', function(){
+		linkLogin.classList.toggle('hidden');
+		myForm.classList.toggle('hidden')
+	})
+
+	// OU
+	// var myForm = document.querySelector('section');
+	// var myLinks = document.querySelector('nav a, #formulaire')
+
+	// for (var i = 0; i < myLinks.length; i++) {
+	// 	myLinks[i].addEventListener('click', function(e){
+	// 		Change(e);
+	// 	});
+	// }
+
+	// function Change(e){
+	// 	e.preventDefault();
+	// 	myLinks[0].classList.toggle('hidden')
+	// 	myForm.classList.toggle('hidden')
+	// }
+
+
+
+
+
+</script>
+</body>
+</html>

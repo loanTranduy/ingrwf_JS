@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+</head>
+<body>
+
+<button>ok</button>
+<script>
+	
+	myBtn = document.querySelector('button');
+	myBtn.addEventListener('click', function (event){ /*ajoute un écouteur d'évènements sur le button qui pourra être retiré*/
+		alert('ok new');
+		myBtn.removeEventListener('click', function(){}); /*je précise quel évènement je veux supprimer*/
+	});
+</script>	
+</body>
+</html>

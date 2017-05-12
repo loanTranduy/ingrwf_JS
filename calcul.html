@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<input type="number" id="premier">
+		<input type="number" id="deuxieme">
+		<button>calculer</button>
+	</form>
+	<section></section>
+
+<script>
+	
+	var myButton = document.querySelector('button');
+	myButton.onclick = function (event) {
+		event.preventDefault();
+
+		myNumber = document.querySelector('#premier');
+		myNumber2 = document.querySelector('#deuxieme');
+		resultat = parseInt(myNumber.value)  + parseInt(myNumber2.value);
+
+		mySection = document.querySelector('section');
+		mySection.innerHTML = resultat;
+		mySection.style.color = 'red';
+
+		};
+</script>
+</body>
+</html>

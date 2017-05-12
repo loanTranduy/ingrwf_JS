@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>fonctions</title>
+</head>
+<body>
+
+<h1>Titre par défaut</h1>
+
+<p>lundi</p>
+<p>mardi</p>
+<div id="survol">Passez la souris</div>
+
+<script>
+function Main/*nom*/(/*paramètre*/ text){ /*var Main = function(text)*/
+	document.querySelector('h1').innerHTML = text; /* ce que je mets dedans*/
+}
+
+myBody = document.querySelector('body');
+myP = document.querySelector('p');
+myDiv = document.querySelector('#survol');
+
+myBody.onload = Main('hello');
+
+myP.onclick = function(){
+	Main(this.innerHTML)
+};
+
+myDiv.onmouseover = function(){
+	Main("La souris est passée")
+}
+
+myDiv.onmouseout = function(){
+	Main("Passez la souris")
+}
+</script>
+	
+</body>
+</html>
