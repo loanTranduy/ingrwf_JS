@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>personnel</title>
+	<style>
+		main{
+			display: flex;
+
+		}
+		aside{
+			width: 25%;
+		}
+		.bad{color: red;}
+
+		aside>form{
+			display: flex;
+			flex-direction: column
+		}
+
+		section{
+			margin-left : 50px;
+		}
+
+	</style>
+</head>
+<body>
+<main>
+	<aside>
+		<form action="">
+
+			<input type="text" id="nom" value="" placeholder="nom">
+
+			<input type="text" id="prenom" placeholder="prénom">
+
+			<input type="text" id="email" placeholder="email">
+			<input type="text" id="phone" placeholder="téléphone">
+			<input type="number" id="age" placeholder="age">
+			<input type="checkbox" value="formation" id="formation"> <label for="inscription">Inscrit(e)<br></label>
+
+			<button>Ajouter</button>
+		</form>
+
+		<ul></ul>
+
+	</aside>
+	<section>
+		<h1>Mon nom est <span class="nom">Nom </span> et mon prénom est <span class="prenom">prénom</span></h1>
+		<dl>
+			<dt>Téléphone</dt>
+			<dd class="tel" ></dd>
+			<dt>e-mail</dt>
+			<dd class="email"></dd>
+			<dt>age</dt>
+			<dd class="age"></dd>
+		</dl>
+		<p class="inscrit"></p>
+	</section>
+</main>
+
+<script>
+	personne = { /*{} = un objet*/
+		"nom" : "tran",
+		"prénom" : "loan",
+		"téléphone" : "058/.48.54.85",
+		"email" : "hello@cepegra.be",
+		"formation" : true
+	}
+
+	// alert(personne.nom); alert(objet.propriété)
+
+	myPersonnel = new Array();/*{} = un objet*/
+	myPersonnel.push({ /*push = ajouter une nouvelle entrée dans un tableau array*/
+		"nom" : "tran",
+		"prénom" : "loan",
+		"téléphone" : "058/.48.54.85",
+		"email" : "hello@cepegra.be",
+		"formation" : true,
+		"age" : 33
+	});
+	myPersonnel.push({ /*push = ajouter une nouvelle entrée dans un tableau array*/
+		"nom" : "tran",
+		"prénom" : "kim",
+		"téléphone" : "058/.55.54.85",
+		"email" : "hello2@cepegra.be",
+		"formation" : false,
+		"age" : 89
+	});
+	console.log(myPersonnel);
+
+	myList = document.querySelector('aside ul')
+	myPhone = document.querySelector('.tel')
+	myEmail = document.querySelector('.email')
+	myNom = document.querySelector('.nom')
+	myPrenom = document.querySelector('.prenom')
+	myAge = document.querySelector('.age')
+	myInscrit = document.querySelector('.inscrit')
+
+	// my Titre = document.querySelector('h1')
+
+
+	function AffData(id){
+		myPhone.innerHTML = myPersonnel[id].téléphone;
+		myEmail.innerHTML = myPersonnel[id].email;
+		myNom.innerHTML = myPersonnel[id].nom;
+		myPrenom.innerHTML = myPersonnel[id].prénom;
+		myAge.innerHTML = myPersonnel[id].age;
+				// OU myTitre.innerHTML = mypersonnel[0].nom + " " + myPersonnel[0].prénom;
+
+		if(myPersonnel[id].formation == true){
+			myInscrit.innerHTML = "Inscrit";
+			myInscrit.classList.remove("bad")
+		}
+		else{
+			myInscrit.innerHTML = "Pas inscrit";
+			myInscrit.classList.add("bad")
+		}
+		
+	}
+	AffData(0);
+
+		// formulaire
+	myBtn = document.querySelector('aside button')
+	myAddNom = document.querySelector('#nom');
+	myAddPrenom = document.querySelector('#prenom');
+	myAddEmail = document.querySelector('#email');
+	myAddPhone = document.querySelector('#phone');
+	myAddAge = document.querySelector('#age');
+	myAddFormation = document.querySelector('#formation');
+
+
+	myBtn.addEventListener('click', function(e){
+		e.preventDefault();
+
+		if(myAddFormation.checked == true){ inscription = true;}else{inscription= false}
+
+		addPersonne = { /*push = ajouter une nouvelle entrée dans un tableau array*/
+		"nom" : myAddNom.value,
+		"prénom" : myAddPrenom.value,
+		"téléphone" : myAddPhone.value,
+		"email" : myAddEmail.value,
+		"formation" : inscription,
+		"age" : myAddAge.value
+		}
+		myPersonnel.push(addPersonne)
+		console.log(myPersonnel)
+		CreateListe();
+
+
+	});
+
+	function CreateListe(){
+		myList.innerHTML = "";
+
+		for (var i = 0; i < myPersonnel.length; i++) {
+			myList.innerHTML += '<li data-id="' + i + '">' + myPersonnel[i].nom + " " + myPersonnel[i].prénom + '</li>'
+		};	
+
+		myLis = document.querySelectorAll("aside li")
+
+		for (var i = 0; i < myLis.length; i++) {
+			myLis[i].addEventListener("click", function(){
+				var myId = this.getAttribute("data-id");
+				// alert(myId);
+			AffData(myId);
+			});
+		};
+
+	}
+
+	CreateListe();
+
+
+
+
+
+
+</script>
+</body>
+</html>
