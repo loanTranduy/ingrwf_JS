@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>trouve le chiffre</title>
+	<style>
+		main{
+			display: flex;
+		}
+
+		aside, section{
+			width: 50%;
+		}
+		.ok{
+			color: green;
+
+		}
+	</style>
+</head>
+<body>
+<header>
+		<h1>Trouve le chiffre auxquel je pense!</h1>
+</header>
+
+	<form action="" >
+		<input type="number"  placeholder="entre 1 et 10">
+		<button >tester</button>
+	</form>
+
+<main>
+	<section>
+		<h2>Réponse</h2>
+		<div><span></span></div>
+	</section>
+
+	<aside>
+		<h2>Historique</h2>
+	</aside>
+</main>
+
+<script>
+	 var num = Math.floor(Math.random()*10);
+	 var myBtn = document.querySelector('button');
+	 var myRps = document.querySelector('input');
+	 var Rps = document.querySelector('section div');
+	 var myHisto = document.querySelector('aside');
+
+
+	 myBtn.addEventListener('click', function(event){
+	 	event.preventDefault();
+		var resultat = myRps.value;
+		myRps.value = "";
+
+	 		if(resultat < num){
+	 			Rps.innerHTML = "Non, le nombre est plus grand que " + resultat;
+	 			myHisto.innerHTML += '<li>' + resultat + '</li>';
+	 		}
+
+	 		if(resultat > num){
+	 			Rps.innerHTML = "Non, le nombre est plus petit que " + resultat;
+	 			myHisto.innerHTML += '<li>' + resultat + '</li>';
+	 		}
+
+	 		if(resultat == num){
+	 			Rps.innerHTML = "Correct ! " + resultat + " est la bonne réponse";
+	 			myHisto.innerHTML += '<li class="ok">' + resultat + " Correct" + '</li>';
+
+	 		}
+
+	 });
+
+		
+</script>
+</body>
+</html>
